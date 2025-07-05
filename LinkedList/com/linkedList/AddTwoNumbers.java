@@ -1,8 +1,8 @@
 public class AddTwoNumbers {
 public static void main(String[] args) {
     //numbers are stored in reverse, i.e LSB is first and MSB is last
-    int[] num1 = {1,9,9,9};
-    int[] num2 = {9,9,9,9};
+    int[] num1 = {2,4,3};
+    int[] num2 = {5,6,4};
 
     Node head1 = ArrayToLL.convertArrToLL(num1);
     Node head2 = ArrayToLL.convertArrToLL(num2);
@@ -21,10 +21,13 @@ private static Node addNumbers(Node head1, Node head2) {
     Node dummy = new Node(-1);
     Node temp3 = dummy;
     int carry = 0;
-    while (temp1 != null || temp2 != null) {
+    while (temp1 != null && temp2 != null) {
         int sum = temp1.val + temp2.val + carry;
         if(sum > 9){
             carry = 1;
+        }
+        else{
+            carry = 0;
         }
         Node newNode = new Node(sum%10);
         temp3.next = newNode;
@@ -36,18 +39,26 @@ private static Node addNumbers(Node head1, Node head2) {
     while (temp1 != null) {
         int sum = temp1.val + carry;
         if(sum > 9) carry = 1;
+            else{
+            carry = 0;
+        }
         temp3.next = new Node(sum%10);
+        temp3 = temp3.next;
         temp1 = temp1.next;
     }
        while (temp2 != null) {
         int sum = temp2.val + carry;
         if(sum > 9) carry = 1;
         temp3.next = new Node(sum%10);
+        temp3 = temp3.next;
         temp2 = temp2.next;
     }
     if(carry == 1){
         temp3.next = new Node(carry);
     }
+        else{
+            carry = 0;
+        }
 
     return dummy.next;
 }

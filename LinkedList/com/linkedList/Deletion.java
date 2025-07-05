@@ -1,17 +1,17 @@
 public class Deletion {
     public static void main(String[] args) {
-        int [] arr = {1,2,3,4,5,6};
+        int [] arr = {1,2,3,4,5,76,8,9,10};
         Node head = ArrayToLL.convertArrToLL(arr);
         // ArrayToLL.printLL(head);
         // head = deleteTail(head);
         // ArrayToLL.printLL(head);
         // head =  deleteKElement(head, 1);
         // ArrayToLL.printLL(head);
-        head = DeleteNodeBasedOnValue(head,6);
+        head = DeleteNodeBasedOnValue(head,8);
         ArrayToLL.printLL(head);
     }
 
-    private static Node DeleteNodeBasedOnValue(Node head, int val) {
+    public static Node DeleteNodeBasedOnValue(Node head, int val) {
        Node temp = head;
        Node prev = null;
        if(head == null){
