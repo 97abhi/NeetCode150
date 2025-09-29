@@ -30,7 +30,7 @@ public class NextPermutation {
         }
                 index--;
                 if(index == -1){
-                    
+                    //reverse the whole array as that is the next permutation
                 }
         int i = 0;
         for(i = arr.length-1;i > index; i--){
